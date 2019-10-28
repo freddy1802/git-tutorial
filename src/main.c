@@ -11,7 +11,7 @@ unsigned int num = 99;
 		printf("Enter a number (unsigned integer) or enter '0' to exit program:\n");
 		scanf("%u", &num);
 			if(num != 0)
-			printf("Corresponding character is: '%c'\n", &num_to_words(num));
+			printf("Corresponding string is: '%s'\n", num_to_words(num));
 		}
 
 	return 0;
