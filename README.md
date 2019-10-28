@@ -18,7 +18,11 @@ A big advantage that C has over interpreter based languages as well as other com
 Please note that if you're reading these instruction whilst doing the tutorial they may dissapear if you change branch or do some git trickery that causes them to move/change. As such, while you get to grips with Git I would reccomend moving these README.md files, as they become available, somewhere outside of the current Git repo while you complete the challenge. 
 =======
 There are specific preprocessor directives, such as `#include` and `#define` which you should all be familiar with. One can also create conditional statements that allow for the preprocessor to either include or not include code sections. This is done with the directives `#if`, `#ifdef` and `#ifndef`. A common example of these directives would be when performing "feature inclusion" via compiled flags.
+<<<<<<< HEAD
 >>>>>>> main-function
+=======
+>>>>>>> compiling
+>>>>>>> merging
 
 ``` C
 #ifdef USE_AMAZING_FEATURE
@@ -100,7 +104,11 @@ git branch merging
 now if we list our branches using `git branch` you should now see that there is a `merging` branch. We now need to change to this branch so our modifications that we perform are done there. It should be noted that the new branch is a copy of this current branch, although if we were to continue modifying master then the merging branch would fall behind and would need to be brought back up to speed with master. But for now just checkout `merging` using the checkout command.
 =======
 The use of the above macro produces more easily read code that is then evaluated into inline C code during precompilation. The precompiler would do the following, via substitution
+<<<<<<< HEAD
 >>>>>>> main-function
+=======
+>>>>>>> compiling
+>>>>>>> merging
 
   ```C
 #define MY_CIRCLE_RADIUS  2
@@ -128,7 +136,11 @@ git push ______ ______
 Would become
 ``` C
 my_circle_area = 3.14 * 2 * 2
+<<<<<<< HEAD
 >>>>>>> main-function
+=======
+>>>>>>> compiling
+>>>>>>> merging
 ```
 To see some much more involved macros that are used in the auto generation of data structures in a state machine, look [here](https://github.com/alxhoff/Application_Interfacing_Governor/blob/master/AI_gov_phases.c).
 
@@ -136,7 +148,11 @@ To see some much more involved macros that are used in the auto generation of da
 Now back to the problem. You should be able to find a branch called `make`, check it out using your newly learnt checkout command. On this branch is the skeleton for our CMake project. Now to merge the `CMakeLists.txt` file, which is the core CMake file for any CMake build, into our merging branch. We need to use the `git merge` command. Details of this can be found in the manual, you should be able to run the correct `man` command yourself now to do this.
 =======
 ## Compilation
+<<<<<<< HEAD
 >>>>>>> main-function
+=======
+>>>>>>> compiling
+>>>>>>> merging
 
 Now the compilation of code is only one step in the process of building a program. After each C file is run through the preprocessor, so that all the preprocessor directives have been handled, the completed C files must then compiled into assembly code. This is done using a compiler, such as the GNU C Compiler (GCC). The assembly code must then be made into machine code that is actually usable by the target device. This is done by the assembler, which creates machine code from the assembly code. By modifying these pieces of software, collectively called a toolchain, you can change how the code is compiled. Various toolchains are available for different hardware architectures, such that the compiled code is compiled with regards to how the code executes on the target architecture. Compiling for a different architecture, such as compiling on an x86 laptop for a ARM based micro-controller, is known as cross compiling.
 
@@ -168,7 +184,11 @@ meaning that this commit can now found be found in origin/merging and not just m
 ## Linking
 
 So we know now that our program is compiled into a number of object files (binary blobs) we need to resolve all of the references to the symbols that are pointed to and found in other object files. As the name implies, linking is the process of linking these references to the actual memory addresses in the appropriate object files. Linking to files within the same source code chunk is usually not that error prone. Most errors come from having to link against static libraries or source code found else where on a system or in another project. Common errors will be those that complain of either missing definitions (cannot find appropriate symbols to link against) or duplicate errors (multiple objects exposing the same symbol).
+<<<<<<< HEAD
 >>>>>>> main-function
+=======
+>>>>>>> compiling
+>>>>>>> merging
 
 # CMake
 
@@ -188,7 +208,11 @@ To execute the CMake script whilst specifying the `build` directory as our build
 =======
 set(CMAKE_BUILD_TYPE Debug)                                                      
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin)                   
+<<<<<<< HEAD
 >>>>>>> main-function
+=======
+>>>>>>> compiling
+>>>>>>> merging
 
 include_directories(include)                                                     
 
@@ -220,7 +244,11 @@ This will recursively remove tracked files from the staging cache. Running `git 
  * Add, commit and PUSH the work you have done to the origin remote.
  * Merge the changes back to `merging`, pushing the result.
  * Come back to this branch to continue with the instructions below.
+<<<<<<< HEAD
 >>>>>>> main-function
+=======
+>>>>>>> compiling
+>>>>>>> merging
 
 Now you should have at least one source file and be able to rerun your CMake command to generate the required make files for your project. If all went well in your build folder you should now see a Makefile that was generated from CMake. To then build your project you need to run the command `make` from within your build directory. If all went well you should now find a built binary in your bin directory with the same name as the executable specified in you `CMakeLists.txt`.
 
@@ -234,4 +262,8 @@ To do so jump to the branch `compiling`.
 In your web browser, if you select the branch `compiling` you can read the README directly in the browser. 
 =======
 One commit will contain the necessary `.h` and `.c` files for a static library that we will build called `espl_lib`. Another commit will contain a `.patch` for your CMake script to link the library. Checkout the commits, find the files, verify their contents and then use cherry pick to merge them to your merging branch. The instructions (in a separate `.md` file) to continue can also be found in a seperate commit.
+<<<<<<< HEAD
 >>>>>>> main-function
+=======
+>>>>>>> compiling
+>>>>>>> merging
