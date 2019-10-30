@@ -1,3 +1,0 @@
-file(REMOVE_RECURSE
-  "libSTATES_LIB.a"
-)
