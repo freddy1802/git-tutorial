@@ -51,12 +51,13 @@ static struct argp_option options[] = {
 pthread_cond_t cond = PTHREAD_COND_INITIALIZER;    /** Condition variable */
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER; /** Self explanatory */
 int count = 0;
-int *count_too = 0;
+int count_to = 0;
 
 typedef struct {
   int args[1];
   int verbose;
   int tick;
+
 } arguments_t;
 
 void errno_abort(char *message) {
@@ -157,7 +158,7 @@ void statemachine_callback(void) {
                    states_get_state_count()); /** Switch to random next state */
 }
 
-int main(int argc, char argv) {
+int main(int argc, char **argv) {
   int error;
 
   srand(time(NULL)); /** Init random numbers */
@@ -175,13 +176,13 @@ int main(int argc, char argv) {
          arguments.verbose ? "yes" : "no", arguments.tick);
 
   /** Initialize state machine */
-  states_add(timer_callback, NULL, state_one_run, NULL, state_first_x,
-             FIRST_STATE_NAME);
+  states_add(state_probe, NULL, state_one_run, NULL, state_first_e,
+		  FIRST_STATE_NAME);
   states_add(state_probe, state_two_enter, state_two_run, state_two_exit,
-             state_second_e, SECOND_STATE_NAME);
+		  state_second_e, SECOND_STATE_NAME);
   states_add(state_probe, NULL, state_three_run, NULL, state_third_e,
-             THIRD_STATE_NAME);
-
+		  THIRD_STATE_NAME);
+  
   states_set_callback(statemachine_callback);
 
   states_init();
@@ -193,7 +194,7 @@ int main(int argc, char argv) {
 
   error = pthread_mutex_lock(&mutex);
   if (!error)
-    err_abort(error, "Lock mutex");
+	  err_abort(error, "Lock mutex");
 
   while (count < count_to) {
     /** Blocked thread can be awakened by a call to pthread_cond_signal */
@@ -215,4 +216,5 @@ int main(int argc, char argv) {
 int err_abort(int status, char *message) {
   fprintf(stderr, "%s\n", message);
   exit(status);
+  return 0;
 }
