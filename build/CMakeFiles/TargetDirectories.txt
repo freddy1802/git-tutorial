@@ -1,4 +1,0 @@
-/DIST/home/lab_espl_stud20/espl_workspace/git-tutorial/build/CMakeFiles/edit_cache.dir
-/DIST/home/lab_espl_stud20/espl_workspace/git-tutorial/build/CMakeFiles/rebuild_cache.dir
-/DIST/home/lab_espl_stud20/espl_workspace/git-tutorial/build/CMakeFiles/STATES_LIB.dir
-/DIST/home/lab_espl_stud20/espl_workspace/git-tutorial/build/CMakeFiles/state_machine.dir
