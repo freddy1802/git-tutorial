@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /DIST/home/lab_espl_stud20/espl_workspace/git-tutorial/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/opt/cmake-3.7.2-Linux-x86_64/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/opt/cmake-3.7.2-Linux-x86_64/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,57 +111,57 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ESPL_LIB
+# Target rules for targets named STATES_LIB
 
 # Build rule for target.
-ESPL_LIB: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ESPL_LIB
-.PHONY : ESPL_LIB
+STATES_LIB: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 STATES_LIB
+.PHONY : STATES_LIB
 
 # fast build rule for target.
-ESPL_LIB/fast:
-	$(MAKE) -f CMakeFiles/ESPL_LIB.dir/build.make CMakeFiles/ESPL_LIB.dir/build
-.PHONY : ESPL_LIB/fast
+STATES_LIB/fast:
+	$(MAKE) -f CMakeFiles/STATES_LIB.dir/build.make CMakeFiles/STATES_LIB.dir/build
+.PHONY : STATES_LIB/fast
 
 #=============================================================================
-# Target rules for targets named foo
+# Target rules for targets named state_machine
 
 # Build rule for target.
-foo: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 foo
-.PHONY : foo
+state_machine: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 state_machine
+.PHONY : state_machine
 
 # fast build rule for target.
-foo/fast:
-	$(MAKE) -f CMakeFiles/foo.dir/build.make CMakeFiles/foo.dir/build
-.PHONY : foo/fast
+state_machine/fast:
+	$(MAKE) -f CMakeFiles/state_machine.dir/build.make CMakeFiles/state_machine.dir/build
+.PHONY : state_machine/fast
 
-lib/espl_lib.o: lib/espl_lib.c.o
+lib/states.o: lib/states.c.o
 
-.PHONY : lib/espl_lib.o
+.PHONY : lib/states.o
 
 # target to build an object file
-lib/espl_lib.c.o:
-	$(MAKE) -f CMakeFiles/ESPL_LIB.dir/build.make CMakeFiles/ESPL_LIB.dir/lib/espl_lib.c.o
-.PHONY : lib/espl_lib.c.o
+lib/states.c.o:
+	$(MAKE) -f CMakeFiles/STATES_LIB.dir/build.make CMakeFiles/STATES_LIB.dir/lib/states.c.o
+.PHONY : lib/states.c.o
 
-lib/espl_lib.i: lib/espl_lib.c.i
+lib/states.i: lib/states.c.i
 
-.PHONY : lib/espl_lib.i
+.PHONY : lib/states.i
 
 # target to preprocess a source file
-lib/espl_lib.c.i:
-	$(MAKE) -f CMakeFiles/ESPL_LIB.dir/build.make CMakeFiles/ESPL_LIB.dir/lib/espl_lib.c.i
-.PHONY : lib/espl_lib.c.i
+lib/states.c.i:
+	$(MAKE) -f CMakeFiles/STATES_LIB.dir/build.make CMakeFiles/STATES_LIB.dir/lib/states.c.i
+.PHONY : lib/states.c.i
 
-lib/espl_lib.s: lib/espl_lib.c.s
+lib/states.s: lib/states.c.s
 
-.PHONY : lib/espl_lib.s
+.PHONY : lib/states.s
 
 # target to generate assembly for a file
-lib/espl_lib.c.s:
-	$(MAKE) -f CMakeFiles/ESPL_LIB.dir/build.make CMakeFiles/ESPL_LIB.dir/lib/espl_lib.c.s
-.PHONY : lib/espl_lib.c.s
+lib/states.c.s:
+	$(MAKE) -f CMakeFiles/STATES_LIB.dir/build.make CMakeFiles/STATES_LIB.dir/lib/states.c.s
+.PHONY : lib/states.c.s
 
 src/main.o: src/main.c.o
 
@@ -169,7 +169,7 @@ src/main.o: src/main.c.o
 
 # target to build an object file
 src/main.c.o:
-	$(MAKE) -f CMakeFiles/foo.dir/build.make CMakeFiles/foo.dir/src/main.c.o
+	$(MAKE) -f CMakeFiles/state_machine.dir/build.make CMakeFiles/state_machine.dir/src/main.c.o
 .PHONY : src/main.c.o
 
 src/main.i: src/main.c.i
@@ -178,7 +178,7 @@ src/main.i: src/main.c.i
 
 # target to preprocess a source file
 src/main.c.i:
-	$(MAKE) -f CMakeFiles/foo.dir/build.make CMakeFiles/foo.dir/src/main.c.i
+	$(MAKE) -f CMakeFiles/state_machine.dir/build.make CMakeFiles/state_machine.dir/src/main.c.i
 .PHONY : src/main.c.i
 
 src/main.s: src/main.c.s
@@ -187,8 +187,35 @@ src/main.s: src/main.c.s
 
 # target to generate assembly for a file
 src/main.c.s:
-	$(MAKE) -f CMakeFiles/foo.dir/build.make CMakeFiles/foo.dir/src/main.c.s
+	$(MAKE) -f CMakeFiles/state_machine.dir/build.make CMakeFiles/state_machine.dir/src/main.c.s
 .PHONY : src/main.c.s
+
+src/my_states.o: src/my_states.c.o
+
+.PHONY : src/my_states.o
+
+# target to build an object file
+src/my_states.c.o:
+	$(MAKE) -f CMakeFiles/state_machine.dir/build.make CMakeFiles/state_machine.dir/src/my_states.c.o
+.PHONY : src/my_states.c.o
+
+src/my_states.i: src/my_states.c.i
+
+.PHONY : src/my_states.i
+
+# target to preprocess a source file
+src/my_states.c.i:
+	$(MAKE) -f CMakeFiles/state_machine.dir/build.make CMakeFiles/state_machine.dir/src/my_states.c.i
+.PHONY : src/my_states.c.i
+
+src/my_states.s: src/my_states.c.s
+
+.PHONY : src/my_states.s
+
+# target to generate assembly for a file
+src/my_states.c.s:
+	$(MAKE) -f CMakeFiles/state_machine.dir/build.make CMakeFiles/state_machine.dir/src/my_states.c.s
+.PHONY : src/my_states.c.s
 
 # Help Target
 help:
@@ -196,16 +223,19 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... ESPL_LIB"
-	@echo "... foo"
-	@echo "... lib/espl_lib.o"
-	@echo "... lib/espl_lib.i"
-	@echo "... lib/espl_lib.s"
+	@echo "... rebuild_cache"
+	@echo "... STATES_LIB"
+	@echo "... state_machine"
+	@echo "... lib/states.o"
+	@echo "... lib/states.i"
+	@echo "... lib/states.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/my_states.o"
+	@echo "... src/my_states.i"
+	@echo "... src/my_states.s"
 .PHONY : help
 
 

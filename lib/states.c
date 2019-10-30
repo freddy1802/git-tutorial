@@ -83,7 +83,8 @@ void states_set_data(void *data) {
 void states_set_input(unsigned char input) { state_machine_dev.input = input; }
 
 unsigned char states_set_state(unsigned int state_id) {
-  for (unsigned char i = 0; i < state_machine_dev.count; i++) {
+	unsigned char i;
+	for (i = 0; i < state_machine_dev.count; i++) {
     if (state_machine_dev.states[i]->id == state_id) {
       state_machine_dev.next_state = state_machine_dev.states[i];
       return 0;
@@ -161,7 +162,8 @@ unsigned char states_init(void) {
   state_t *next_state = state_machine_dev.next_state;
 
   /** All states who's probe has not been run are probed, if possible */
-  for (int i = 0; i < state_machine_dev.count; i++)
+  int i;
+  for (i = 0; i < state_machine_dev.count; i++)
     if (!state_machine_dev.states[i]->initd) {
       if (state_machine_dev.states[i]->probe) {
         state_machine_dev.current_state = state_machine_dev.states[i];
